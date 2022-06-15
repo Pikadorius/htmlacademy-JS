@@ -1,0 +1,14 @@
+let weight = 5;
+let length = 60;
+let age = 5;
+let activityRate = 1.725;
+
+let metabolic = 88.362 + (13.397 * weight) + (4.799 * length) - (5.677 * age);
+console.log(metabolic);
+
+let calorieRate = Math.round(metabolic * activityRate);
+console.log(calorieRate);
+
+let proteins = Math.round(calorieRate * 0.4);
+let fats = Math.round(calorieRate * 0.25);
+let carbohydrates = Math.round(calorieRate * 0.35);
