@@ -1,0 +1,33 @@
+let poly = 1221;
+let ylop = 0;
+let isPalindrome;
+
+
+/* Техническое задание
+
+Мяу! Напиши программу, которая проверяет, является ли число палиндромом.
+
+Число записано в переменную poly.
+
+Переменная, куда нужно записать «перевёрнутую» версию числа, называется ylop.
+
+Выясни, является ли число из переменной poly палиндромом. Если да, значение флага isPalindrome должно быть true, если число не палиндром, то false.
+*/
+
+let count=String(poly).length;
+let numb=poly; 
+
+
+for (let i=count-1; i>=0; i--) {
+  ylop=ylop+(numb%10)*Math.pow(10,i);
+  numb=Math.floor(numb/10);
+}
+console.log("this is ylop: " + ylop);
+console.log("this is poly: " + poly);
+
+if (poly==ylop) {
+  isPalindrome = true;
+}
+else {
+  isPalindrome = false;
+}
