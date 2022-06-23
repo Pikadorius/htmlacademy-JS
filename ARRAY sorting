@@ -1,0 +1,16 @@
+let numbers = [12, 3, 7, 9, 10, 5];  входной массив
+
+for (let i = 0; i <= numbers.length - 2; i++) { 
+  let minValue = numbers[i];
+
+  for (let j = i + 1; j <= numbers.length - 1; j++) {
+    if (numbers[j] < minValue) {
+      minValue = numbers[j];
+      let swap = numbers[i];
+      numbers[i] = minValue;
+      numbers[j] = swap;
+    }
+  }
+}
+
+console.log(numbers); // Выведет: [3, 5, 7, 9, 10, 12];
