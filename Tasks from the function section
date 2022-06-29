@@ -129,3 +129,52 @@ let getDiet = function (calory,limit) {
 
 */
 
+-----------------------------------------------------------------------------------
+№6
+
+let getDocumentsNumbers = function(documents, year) {
+  let count=0;
+  for (let i=0; i < documents.length; i++) {
+    if (documents[i].indexOf(year,4)===4)  {
+      count++;
+    }
+  }
+  return count;
+}
+
+/* Техническое задание
+
+Мяу! Напиши программу getDocumentsNumbers, которая будет возвращать число документов за указанный год.
+
+У функции должно быть два параметра: массив с названиями документов и год, за который надо найти документы. Названия параметров могут быть любыми. Даты из массива записаны в виде строк.
+
+Функция должна возвращать количество документов, в названии которых есть необходимый год.
+
+Если таких документов в массиве нет, функция должна возвращать 0.
+
+*/
+
+
+let getDocumentsNumbers = function(documents, yearCheck) {
+  
+  let total=0;
+  let year=String(yearCheck);
+  
+  for (let i=0; i<documents.length; i++) {
+  let name=documents[i];
+  let count=0;
+  
+    for(let j=4; j<name.length; j++) {
+      if(name[j]===year[j-4]) {
+        count++;
+        if (count===4) {
+         total++; 
+        }
+      }
+    }
+  }
+  return total;
+}
+
+----------------------------------------------------------------------------
+
