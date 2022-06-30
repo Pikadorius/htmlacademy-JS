@@ -328,3 +328,51 @@ let calculateDeposit = function (initialDeposit, annualPercent, term, isCapitali
 Вклад с капитализацией считается сложнее: каждый месяц к сумме депозита прибавляются накопленный за месяц процент годовых (не забывай делить процент на 12), а процент следующего месяца считается уже от увеличенной суммы депозита.
 
 */
+
+--------------------------------------------------------------------------------------------------------------
+№12
+
+let calculateDeposit = function (initialDeposit, annualPercent, term, isCapitalize) {
+  let deposit=initialDeposit;
+  
+  if (isCapitalize) {
+    for(let i=1; i<=term; i++) {
+      deposit+=deposit*(annualPercent/1200);
+    }
+  }
+  else {
+    deposit+=deposit*(annualPercent/1200*term);
+  }
+  return Math.floor(deposit);
+};
+
+
+
+let getProfitableDeposit = function (initialDeposit, term, annualPercent1, annualPercent2) {
+  let profit1 = calculateDeposit(initialDeposit, annualPercent1, term, false);
+  let profit2 = calculateDeposit(initialDeposit, annualPercent2, term, true);
+  if (profit1 > profit2) {
+    return 'Выбирай обычный вклад. Получишь ' + profit1;
+  }
+  else {
+    return 'Выбирай капитализацию. Получишь ' + profit2;
+  }
+  
+}
+/* Техническое задание
+
+Мяу! Мне нужна программа getProfitableDeposit для сравнения вкладов. У неё должно быть четыре параметра:
+
+исходный размер депозита;
+срок депозита в месяцах;
+процентная ставка для депозита с простыми процентами;
+процентная ставка для депозита с капитализацией процентов.
+
+Программа должна рассчитать, сколько я получу с двух разных вкладов: с обычными процентами и с капитализацией. Затем программа должна сравнить результаты и вернуть подходящую строку:
+
+'Выбирай обычный вклад. Получишь ' + доход от вклада.
+'Выбирай капитализацию. Получишь ' + доход от вклада.
+
+*/
+
+
