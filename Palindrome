@@ -31,3 +31,12 @@ if (poly==ylop) {
 else {
   isPalindrome = false;
 }
+
+
+________________________________________________
+
+
+function isPalindrome(x) {
+  // your code here
+  return x.toUpperCase().split('').reverse().join('')===x.toUpperCase;
+}
